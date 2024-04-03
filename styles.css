@@ -1,0 +1,765 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #111; /* Dark black background */
+  color: #ddd; /* Light gray text */
+  line-height: 1.6;
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+/* Navigation bar styles */
+header {
+  background-color: #001f3f; /* Dark blue background */
+  color: #fff; /* White text color */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline;
+  margin-right: 20px;
+  position: relative; /* Ensure relative positioning for dropdown */
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+/* Add hover effect on navigation links */
+nav ul li a:hover {
+  color: #ffb400; /* Change color on hover */
+}
+
+/* Add underline effect on hover */
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #ffb400; /* Yellow underline color */
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover::before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+/* Dropdown menu styles */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #001f3f; /* Dark blue background for dropdown */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  z-index: 100;
+}
+
+.dropdown-content a {
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #002f5f; /* Darker blue background on hover */
+}
+
+nav ul li:hover .dropdown-content {
+  display: block; /* Show dropdown on hover */
+}
+
+/* Sections */
+section {
+  padding: 100px 0;
+}
+
+.hero-section {
+  height: 100vh; /* Set height to 100% of viewport height */
+  background: linear-gradient(
+    to right,
+    #111 50%,
+    #007bff
+  ); /* Dark black on the left, light blue on the right */
+  text-align: center;
+  color: #fff;
+  padding: 100px 0;
+  animation: gradientAnimation 5s infinite linear;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero-content {
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+.hero-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-content h1 {
+  font-size: 48px;
+  margin-top: 15%;
+  margin-bottom: 20px;
+  color: #eee; /* Light gray heading */
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Soft shadow effect */
+}
+
+.hero-content p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  color: #ccc; /* Light gray paragraph text */
+}
+
+.btn {
+  display: inline-block;
+  background-color: #007bff; /* Dark blue button */
+  color: #fff;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.blog-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.blog-content::before {
+  content: "Latest Blog Posts";
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 100%;
+  font-size: 66px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  transform: translateY(-20%);
+  padding-bottom: 16rem;
+}
+
+.blog-section h2 {
+  font-size: 36px;
+  position: relative;
+  z-index: 2; /* Higher z-index to display above */
+  top: 4px;
+}
+
+.blog-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ddd; /* Light gray heading */
+}
+
+.blog-list {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.blog-item {
+  width: 50%; /* Set width to 40% */
+  background-color: #222; /* Dark background color */
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  margin-right: 10px; /* Add right margin for gap */
+}
+
+/* Remove the right margin from the last blog item to prevent extra space */
+.blog-item:last-child {
+  margin-right: 0;
+}
+
+.blog-item img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.blog-item h3 {
+  font-size: 24px;
+  margin-top: 15px;
+  color: #fff; /* White heading color */
+}
+
+.blog-item p {
+  color: #ccc; /* Light gray paragraph text */
+  margin-top: 10px;
+}
+
+.blog-item .btn {
+  background-color: #007bff; /* Dark blue button */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 15px;
+}
+
+.blog-item .btn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.blog-item:hover {
+  transform: translateY(-5px); /* Add hover effect */
+}
+
+.internships-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.internships-content::before {
+  content: "Explore Virtual Internships";
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 100%;
+  font-size: 58px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  transform: translateY(-20%);
+}
+
+.internships-section h2 {
+  font-size: 34px;
+  position: relative;
+  z-index: 2; /* Higher z-index to display above */
+  top: 18px;
+}
+
+.internships-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 30px;
+  height: 38rem;
+}
+
+.internship-item {
+  flex: 0 0 calc(50% - 20px); /* Adjust the width as needed */
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  height: 100%;
+  margin-bottom: 10px; /* Add margin between items */
+}
+
+@media (max-width: 768px) {
+  .internship-item {
+    flex: 0 0 calc(50% - 20px);
+  }
+}
+
+@media (max-width: 576px) {
+  .internship-item {
+    flex: 0 0 100%;
+  }
+}
+
+.internship-item:hover {
+  transform: translateY(-5px);
+}
+
+.internship-item img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.internship-item h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.internship-item p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.internship-item .btn {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.internship-item .btn:hover {
+  background-color: #0056b3;
+}
+
+/* About, Internships, Blog, Contact sections */
+.about-section,
+.internships-section,
+.blog-section,
+.contact-section {
+  text-align: center;
+  background: linear-gradient(
+    to right,
+    #111 50%,
+    #007bff
+  ); /* Dark black on the left, light blue on the right */
+  text-align: center;
+  color: #fff;
+  padding: 100px 0;
+  animation: gradientAnimation 5s infinite linear;
+}
+
+.about-content,
+.internships-content,
+.blog-content,
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-content h2,
+.internships-content h2,
+.blog-content h2,
+.contact-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ddd; /* Light gray heading */
+}
+
+.about-content p,
+.internships-content p,
+.blog-content p,
+.contact-content p {
+  font-size: 18px;
+  color: #bbb; /* Light gray paragraph text */
+}
+
+footer {
+  background-color: #001f3f; /* Dark blue footer */
+  color: #fff;
+  text-align: center;
+  padding: 10px; /* Reduced padding */
+  bottom: 0;
+  height: 13%; /* Reduced height */
+  width: 100%;
+  font-size: 15px; /* Adjust font size */
+}
+
+.contact-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.contact-content::before {
+  content: "Contact Us";
+  position: absolute;
+  top: -40px;
+  left: -20px;
+  width: 100%;
+  font-size: 68px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  transform: translateY(-20%);
+  padding-bottom: 16rem;
+}
+
+.contact-section h2 {
+  font-size: 36px;
+  position: relative;
+  z-index: 2; /* Higher z-index to display above */
+  top: -24px;
+}
+
+.contact-content h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ddd; /* Light gray heading */
+}
+
+.contact-content p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #bbb; /* Light gray paragraph text */
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.contact-form textarea {
+  height: 150px;
+}
+
+.contact-form input[type="submit"] {
+  background-color: #007bff; /* Dark blue button */
+  color: #fff;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  color: #fff;
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 20px;
+  margin: 0 10px; /* Add spacing between icons */
+  transition: transform 0.3s ease; /* Add smooth transition */
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px); /* Add hover effect */
+}
+
+/* Styling for About section */
+.about-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  border-radius: 10px;
+  position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+.about-content h2 {
+  font-size: 48px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2; /* Ensure text is in the foreground */
+}
+
+.about-content::before {
+  content: "About Us";
+  position: absolute;
+  top: -97px;
+  left: -20px;
+  width: 100%;
+  font-size: 82px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.1); /* Color of background text */
+  z-index: 1; /* Ensure background text is behind main text */
+  transform: translateY(-20%);
+}
+
+.about-content-text {
+  width: 45%;
+  position: relative; /* Ensure relative positioning for pseudo-element */
+  z-index: 1; /* Ensure text is above the pseudo-element */
+}
+
+.about-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #ddd; /* Light gray heading */
+  position: relative; /* Ensure relative positioning for pseudo-element */
+}
+
+.about-content-image {
+  width: 45%;
+}
+
+.about-content-image img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+.section-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.section-heading span {
+  color: #007bff; /* Change color for second word */
+}
+
+.faq-section {
+  background-color: #f5f5f5; /* Set background color */
+  padding: 50px 0; /* Add padding to the top and bottom */
+  height: 100vh; /* Set height to 100% of viewport height */
+  background: linear-gradient(
+    to right,
+    #111 50%,
+    #007bff
+  ); /* Dark black on the left, light blue on the right */
+  text-align: center;
+  color: #fff;
+  padding: 100px 0;
+  padding-left: 10%;
+  padding-right: 10%;
+  animation: gradientAnimation 5s infinite linear;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.section-heading {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.section-heading span {
+  color: #007bff; /* Set color for the second word */
+}
+
+.faq-question {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  cursor: pointer;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Position for icon */
+}
+
+.faq-question i {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  font-size: 18px;
+  align-self: center;
+  text-align: center;
+  display: none;
+}
+
+/* For small screens */
+@media (max-width: 576px) {
+  /* Adjust navigation bar styles */
+  nav ul li {
+    display: block;
+    margin: 10px 0;
+  }
+  nav ul li a {
+    display: block;
+  }
+  .logo {
+    font-size: 20px;
+  }
+  header {
+    padding: 10px;
+  }
+  /* Adjust hero section styles */
+  .hero-content h1 {
+    font-size: 36px;
+  }
+  .hero-content p {
+    font-size: 16px;
+  }
+  /* Adjust blog section styles */
+  .blog-item {
+    width: 100%;
+  }
+  .blog-item img {
+    width: 100%;
+  }
+  .blog-item h3 {
+    font-size: 20px;
+  }
+  .blog-item p {
+    font-size: 14px;
+  }
+  /* Adjust internship section styles */
+  .internship-item {
+    flex: 0 0 100%;
+  }
+  .internship-item img {
+    width: 100%;
+  }
+  .internship-item h3 {
+    font-size: 20px;
+  }
+  .internship-item p {
+    font-size: 14px;
+  }
+  /* Adjust about section styles */
+  .about-content {
+    flex-direction: column;
+  }
+  .about-content-text,
+  .about-content-image {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .about-content h2 {
+    font-size: 24px;
+  }
+  .about-content-image img {
+    max-width: 100%;
+  }
+  /* Adjust contact section styles */
+  .contact-content::before {
+    font-size: 48px;
+  }
+  .contact-content h2 {
+    font-size: 24px;
+  }
+  .contact-content p {
+    font-size: 16px;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: calc(100% - 20px);
+  }
+}
+
+/* For medium screens */
+@media (min-width: 577px) and (max-width: 768px) {
+  /* Adjust navigation bar styles */
+  .logo {
+    font-size: 22px;
+  }
+  header {
+    padding: 15px;
+  }
+  /* Adjust hero section styles */
+  .hero-content h1 {
+    font-size: 40px;
+  }
+  .hero-content p {
+    font-size: 18px;
+  }
+  /* Adjust blog section styles */
+  .blog-item {
+    width: 48%; /* Adjust width as needed */
+  }
+  .blog-item h3 {
+    font-size: 22px;
+  }
+  .blog-item p {
+    font-size: 16px;
+  }
+  /* Adjust internship section styles */
+  .internship-item {
+    flex: 0 0 calc(50% - 15px); /* Adjust width as needed */
+  }
+  .internship-item h3 {
+    font-size: 22px;
+  }
+  .internship-item p {
+    font-size: 16px;
+  }
+  /* Adjust about section styles */
+  .about-content h2 {
+    font-size: 28px;
+  }
+  /* Adjust contact section styles */
+  .contact-content::before {
+    font-size: 56px;
+  }
+  .contact-content h2 {
+    font-size: 28px;
+  }
+  .contact-content p {
+    font-size: 18px;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: calc(100% - 30px);
+  }
+}
